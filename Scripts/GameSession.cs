@@ -28,19 +28,11 @@ public class GameSession : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
         
+        else
+            DontDestroyOnLoad(gameObject);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -51,12 +43,13 @@ public class GameSession : MonoBehaviour
     private void CheckSceneName()
     {
         sceneName = SceneManager.GetActiveScene().name;
-        //Debug.Log(sceneName);
+        
         if (sceneName == "Game Over" || sceneName == "Win Screen")
         {
             finalScoreText.text = gameScore.ToString();
             scoreText.text = "";
         }
+        
         else
         {
             scoreText.text = gameScore.ToString();
@@ -79,14 +72,11 @@ public class GameSession : MonoBehaviour
     public void ResetGame()
     {
         if(gameObject != null)
-        {
             Destroy(gameObject);
-        }
     }
 
     public bool IsAutoPlayEnable()
     {
         return autoPlay;
     }
-
 }
