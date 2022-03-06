@@ -40,6 +40,7 @@ public class Ball : MonoBehaviour
             LockBallToPedal();
             LaunchBall();
         }
+        
         else if (hasStarted)
         {
             if (IsBallStuckX())
@@ -56,6 +57,7 @@ public class Ball : MonoBehaviour
                     myRigidbod2D.velocity = new Vector2(startPushY, startPushX);
                 }
             }
+            
             else if (IsBallStuckY())
             {
                 if (transform.position.x > 8)
@@ -70,10 +72,6 @@ public class Ball : MonoBehaviour
                 }
             }
         }
-
-
-        //Debug.Log(transform.position.y);
-        //Debug.Log(transform.position.y);
     }
 
     private bool IsBallStuckY()
@@ -85,10 +83,9 @@ public class Ball : MonoBehaviour
             secondsX = timerX % 60;
             
             if (secondsX > 5)
-            {
                 return true;
-            }
         }
+        
         else
         {
             previousPositionOfBallX = currentPositionOfBallX;
@@ -107,10 +104,9 @@ public class Ball : MonoBehaviour
             secondsY = timerY % 60;
             
             if(secondsY > 5)
-            {
-                return true;
-            }
+                return true;  
         }
+        
         else
         {
             previousPositionOfBallY = currentPositionOfBallY;
@@ -140,8 +136,6 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (hasStarted) 
-        {
             GetComponent<AudioSource>().Play();
-        } 
     }
 }
