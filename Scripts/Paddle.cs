@@ -30,12 +30,9 @@ public class Paddle : MonoBehaviour
     private float GetXpos()
     {
         if (gameSession.IsAutoPlayEnable())
-        {
             return ball.transform.position.x;
-        }
+
         else
-        {
             return Input.mousePosition.x / Screen.width * screenWidthInUnits;
-        }
     }
 }
