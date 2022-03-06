@@ -29,46 +29,33 @@ public class Block : MonoBehaviour
     {
         level = FindObjectOfType<Level>();
         if (tag == "Breakable")
-        {
-            level.CountBlocks();
-        }
-            
+            level.CountBlocks();     
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(tag == "Breakable")
-        {
-            HandleHit();
-        }
-            
+            HandleHit();  
     }
 
     private void HandleHit()
     {
         timesHit++;
         if (timesHit >= maxHits)
-        {
             DestroyBlock();
-        }
+
         else
-        {
             ShowNextSprite();
-        }
     }
 
     private void ShowNextSprite()
     {
         spriteIndex = timesHit - 1;
         if (hitSprites[spriteIndex] != null)
-        {
             GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
-        }
+
         else
-        {
-            Debug.LogError("Block sprite is missing" + gameObject.name);
-        }
-            
+            Debug.LogError("Block sprite is missing" + gameObject.name);    
     }
 
     private void AddToScore()
