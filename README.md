@@ -1,3 +1,3 @@
 # Block-Breaker-game
 
-My first game project
+My first game project on Unity
