@@ -1,6 +1,6 @@
 # Block-Breaker-2D
 
-My first game project on Unity
+My first game project on Unity, just breake the blocks.
 
 ## Game Preview
 
